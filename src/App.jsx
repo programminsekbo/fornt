@@ -4,17 +4,47 @@ import { useRef, useState } from "react";
 
 const App = () => {
 
-let [number,setNumber]=useState(0);
+let [number,setNumber]=useState({
+  name1:"hridoy islam",
+  roll:50415,
+  cite:"dhaka",
+});
+
+
+let chang=()=>{
+
+setNumber(
+     
+
+
+  prevOBJ=>({ 
+
+    ...prevOBJ,
+    name1:"rk rafik ridoy",
+    roll:2000,
+
+
+
+  })
+
+
+
+
+
+)
+
+
+}
+
+
 
 
 
   return (
     <div>
-  <h1>number:{number}</h1><br />
-
-<button onClick={()=>setNumber(number+1)}>click+</button>
-<button onClick={()=>setNumber(number-1)}>click - </button>
-
+<h1>{number.name1}</h1>
+<h1>{number.roll}</h1>
+<button onClick={chang}>click</button>
 
     </div>
   );
