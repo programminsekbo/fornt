@@ -3,20 +3,23 @@ import { useRef } from "react";
 
 
 const App = () => {
+let least,fiste=useRef();
 
-let play=useRef();
 
 let love=()=>{
-  play.current.src="https://placehold.co/600x400?text=Hello\nWorld";
-  play.current.setAttribute("height" ,"100px")
-  play.current.setAttribute("width" , "300px")
+let name1=fiste.value;
+let name2=least.value;
+
+alert(name1+" "+name2)
+
 }
+
 
   return (
     <div>
 
-
-<img src="https://placehold.co/600x400@2x.png"  ref={play} />
+<input  ref={(a)=>fiste=a} type="firest name" />
+<input ref={(a)=>least=a}  type="lest name" />
 <button onClick={love}>click here</button>
 
 
