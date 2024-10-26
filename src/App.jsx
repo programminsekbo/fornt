@@ -3,24 +3,29 @@ import { useRef } from "react";
 
 
 const App = () => {
-let least,fiste=useRef();
+
+let number=useRef(null);
+let myPTag=useRef();
 
 
-let love=()=>{
-let name1=fiste.value;
-let name2=least.value;
-
-alert(name1+" "+name2)
+let love=async ()=>{
+  let respons=await fetch("https://dummyapi.online/api/movies")
+   number.current=await respons.json()
 
 }
 
+let heat=()=>{
+  myPTag.current.innerText=JSON.stringify(number.current)
+
+}
 
   return (
     <div>
 
-<input  ref={(a)=>fiste=a} type="firest name" />
-<input ref={(a)=>least=a}  type="lest name" />
-<button onClick={love}>click here</button>
+<p ref={myPTag}></p>
+
+<button onClick={love}>aoi call</button>
+<button onClick={heat}>sho data</button>
 
 
 
