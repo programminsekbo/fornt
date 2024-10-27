@@ -1,80 +1,44 @@
-import { useState } from "react";
+import Demo from "./component/Demo";
+import Headar from "./component/Headar";
+import Loging from "./component/Loging";
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+
 
 
 const App = () => {
 
 
-  let [foromobj,setforomobj]=useState({
-   fName:"",
-   lName:"",
-   city:"",
-
-  })
-
-
-let inputChsng=(property,value)=>{
-   setforomobj(
-
-prevobj=>({
- ...prevobj,
- [property]:value
-
-
-})
-
-
-   )
-
-
-
-}
-
-
-let fromsubmit=(e)=>{
-  e.preventDefault();
-  console.log(foromobj)
-}
-
-
-
-
   return (
     <div>
+<BrowserRouter>
+
+
+<Routes>
+
+<Route  path="/"   element={<Demo/>} />
+<Route  path="/login" element={<Loging/>}/>
+<Route  path="*" element={<Headar/>}/>
+
+
+
+
+
+</Routes>
+
+
+
+
+
+</BrowserRouter>
+
+
+
+
+
+
+
+
       
-
-  <form onSubmit={fromsubmit}>
-
-
-<input onChange={(e)=>{inputChsng("fName",e.target.value)}}  value={foromobj.fName} type="text" placeholder="firstName"  /><br />
-
-
-<input onChange={(e)=>{inputChsng("lName",e.target.value)}} value={foromobj.lName} type="text" placeholder="lastName" />
-<br />
-
-  <select onChange={(e)=>{inputChsng("city",e.target.value)}} value={foromobj.city} >
-
-<option value="">choose city</option>
-<option value="dhaka">dhaka</option>
-<option value="dinajpur">dinajpur</option>
-<option value="thakungonj">thakungonj</option>
-<option value="soidpur">soidpur</option>
-
-
-  </select><br />
-
-<button>submit</button>
-
-
-
-
-</form>
-
-
-
-
-
-
-
     </div>
   );
 };

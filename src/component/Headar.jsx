@@ -1,17 +1,14 @@
-;
+
 
 const Headar = () => {
-
-
-
   return (
     <div>
+      
 
-    
 
 
-</div>
-
+      <h1>not found page</h1>
+    </div>
   );
 };
 
