@@ -1,50 +1,79 @@
-import { useRef, useState } from "react";
-
+import { useState } from "react";
 
 
 const App = () => {
 
-let [number,setNumber]=useState({
-  name1:"hridoy islam",
-  roll:50415,
-  cite:"dhaka",
-});
 
-
-let chang=()=>{
-
-setNumber(
-     
-
-
-  prevOBJ=>({ 
-
-    ...prevOBJ,
-    name1:"rk rafik ridoy",
-    roll:2000,
-
-
+  let [foromobj,setforomobj]=useState({
+   fName:"",
+   lName:"",
+   city:"",
 
   })
 
 
+let inputChsng=(property,value)=>{
+   setforomobj(
+
+prevobj=>({
+ ...prevobj,
+ [property]:value
 
 
+})
 
-)
+
+   )
+
 
 
 }
 
+
+let fromsubmit=(e)=>{
+  e.preventDefault();
+  console.log(foromobj)
+}
 
 
 
 
   return (
     <div>
-<h1>{number.name1}</h1>
-<h1>{number.roll}</h1>
-<button onClick={chang}>click</button>
+      
+
+  <form onSubmit={fromsubmit}>
+
+
+<input onChange={(e)=>{inputChsng("fName",e.target.value)}}  value={foromobj.fName} type="text" placeholder="firstName"  /><br />
+
+
+<input onChange={(e)=>{inputChsng("lName",e.target.value)}} value={foromobj.lName} type="text" placeholder="lastName" />
+<br />
+
+  <select onChange={(e)=>{inputChsng("city",e.target.value)}} value={foromobj.city} >
+
+<option value="">choose city</option>
+<option value="dhaka">dhaka</option>
+<option value="dinajpur">dinajpur</option>
+<option value="thakungonj">thakungonj</option>
+<option value="soidpur">soidpur</option>
+
+
+  </select><br />
+
+<button>submit</button>
+
+
+
+
+</form>
+
+
+
+
+
+
 
     </div>
   );
