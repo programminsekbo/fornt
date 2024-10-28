@@ -1,36 +1,18 @@
-import { useRef } from "react";
-import { json } from "react-router-dom";
+import { useRef, useState } from "react";
+
 
 const App = () => {
 
-const apidata=useRef(null);
-const  showapi=useRef();
+const [number,setnumber]=useState(0);
 
 
-
-const heidoy= async()=>{
-const respons= await fetch('https://jsonplaceholder.typicode.com/todos/1')
-apidata.current=await respons.json()
-
-
-}
-
-const onchang=()=>{
-
-showapi.current.innerText=JSON.stringify(apidata.current)
-
-}
 
   return (
     <div>
-
-
-<p ref={showapi}></p>
-
-<button onClick={heidoy}>api call</button>
-
-<button  onClick={onchang}>sho data </button>
-
+  <h1>Number:{number}</h1>
+<br />
+<button onClick={()=>setnumber(number+1)}>click++</button>
+<button onClick={()=>setnumber(number-1)}>click--</button>
 
 
       
