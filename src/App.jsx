@@ -2,28 +2,28 @@ import { useRef } from "react";
 
 const App = () => {
 
-let fValue,lvalue=useRef();
+let lvalue=useRef(0);
 
 let onchang=()=>{
 
- let hridoy=fValue.value;
- let good=lvalue.value;
-
-  alert(hridoy+" "+good)
+lvalue.current++;
+console.log(lvalue.current++)
   
-
-
-
 }
+let heidoy=()=>{
+
+  lvalue.current--;
+  console.log(lvalue.current--)
+    
+  }
+  
 
 
 
   return (
     <div>
 
-
-<input ref={(e)=>fValue=(e)} type="text" /><br />
-<input  ref={(e)=>lvalue=(e)} type="text" />
+<button onClick={heidoy}>---</button>
 
 <button  onClick={onchang}>click</button>
 
