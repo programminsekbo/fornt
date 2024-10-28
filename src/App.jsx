@@ -1,31 +1,35 @@
 import { useRef } from "react";
+import { json } from "react-router-dom";
 
 const App = () => {
 
-let lvalue=useRef(0);
+const apidata=useRef(null);
+const  showapi=useRef();
 
-let onchang=()=>{
 
-lvalue.current++;
-console.log(lvalue.current++)
-  
+
+const heidoy= async()=>{
+const respons= await fetch('https://jsonplaceholder.typicode.com/todos/1')
+apidata.current=await respons.json()
+
+
 }
-let heidoy=()=>{
 
-  lvalue.current--;
-  console.log(lvalue.current--)
-    
-  }
-  
+const onchang=()=>{
 
+showapi.current.innerText=JSON.stringify(apidata.current)
 
+}
 
   return (
     <div>
 
-<button onClick={heidoy}>---</button>
 
-<button  onClick={onchang}>click</button>
+<p ref={showapi}></p>
+
+<button onClick={heidoy}>api call</button>
+
+<button  onClick={onchang}>sho data </button>
 
 
 
