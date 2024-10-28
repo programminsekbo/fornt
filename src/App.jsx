@@ -1,40 +1,28 @@
-import Demo from "./component/Demo";
-import Headar from "./component/Headar";
-import Loging from "./component/Loging";
-import {BrowserRouter, Route, Routes} from "react-router-dom"
-
-
+import { useRef } from "react";
 
 const App = () => {
+
+let myValue=useRef();
+
+let onchang=()=>{
+
+myValue.src="https://placehold.co/600x400/000000/FFFFFF/png"
+
+myValue.setAttribute("heigth","300px")
+myValue.setAttribute("width","100px")
+
+
+}
+
 
 
   return (
     <div>
-<BrowserRouter>
 
 
-<Routes>
+<img  ref={(e)=>myValue=(e)}  src="https://placehold.co/600x400" alt="bangladesh" />
 
-<Route  path="/"   element={<Demo/>} />
-<Route  path="/login" element={<Loging/>}/>
-<Route  path="*" element={<Headar/>}/>
-
-
-
-
-
-</Routes>
-
-
-
-
-
-</BrowserRouter>
-
-
-
-
-
+<button  onClick={onchang}>click</button>
 
 
 
