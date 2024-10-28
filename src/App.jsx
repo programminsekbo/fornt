@@ -2,14 +2,16 @@ import { useRef } from "react";
 
 const App = () => {
 
-let myValue=useRef();
+let fValue,lvalue=useRef();
 
 let onchang=()=>{
 
-myValue.src="https://placehold.co/600x400/000000/FFFFFF/png"
+ let hridoy=fValue.value;
+ let good=lvalue.value;
 
-myValue.setAttribute("heigth","300px")
-myValue.setAttribute("width","100px")
+  alert(hridoy+" "+good)
+  
+
 
 
 }
@@ -20,7 +22,8 @@ myValue.setAttribute("width","100px")
     <div>
 
 
-<img  ref={(e)=>myValue=(e)}  src="https://placehold.co/600x400" alt="bangladesh" />
+<input ref={(e)=>fValue=(e)} type="text" /><br />
+<input  ref={(e)=>lvalue=(e)} type="text" />
 
 <button  onClick={onchang}>click</button>
 
