@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Demo from './component/Demo';
-import Loging from './component/Loging';
-import Headar from './component/Headar';
+import Demo from "./component/Demo";
+import Loging from "./component/Loging";
+import Headar from "./component/Headar";
 
 
 const App = () => {
@@ -9,20 +9,26 @@ const App = () => {
     <div>
       
 <BrowserRouter>
-  <Routes>
 
-<Route   path="/" element={<Demo/>}/>
-<Route path="/loging"  element={ <Loging/>}/>
-<Route path="*" element={ <Headar/> }/>
+<Routes>
+
+<Route  path="/" element={<Demo/>} />
+<Route  path="/login" element={<Loging/>} />
+<Route  path="/*" element={<Headar/>} />
 
 
 
+</Routes>
 
-  </Routes>
+
+
 
 
 
 </BrowserRouter>
+
+
+
 
 
 
